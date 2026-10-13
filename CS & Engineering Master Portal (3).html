@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CS & Engineering Master Portal: Unified Technical Ecosystem</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        portal: {
+                            darkbg: '#060913',
+                            carddark: '#0F172A',
+                            accent: '#6366F1',
+                            secondary: '#3B82F6',
+                            success: '#10B981',
+                            warning: '#F59E0B'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- FontAwesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :focus-visible {
+            outline: 3px solid #6366F1 !important;
+            outline-offset: 3px !important;
+        }
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        @keyframes pulseGlow {
+            0%, 100% { opacity: 0.4; filter: drop-shadow(0 0 2px rgba(99, 102, 241, 0.5)); }
+            50% { opacity: 1; filter: drop-shadow(0 0 8px rgba(99, 102, 241, 0.9)); }
+        }
+        .bus-pulse {
+            animation: pulseGlow 1.5s infinite ease-in-out;
+        }
+    </style>
+</head>
+<body class="bg-slate-950 text-slate-100 min-h-screen font-sans antialiased" id="mainBody">
+
+    <header class="sticky top-0 z-50 bg-slate-900/95 backdrop-blur border-b border-slate-800 shadow-2xl">
+        <div class="max-w-7xl mx-auto px-4 py-3 flex flex-wrap items-center justify-between gap-4">
+            <div class="flex items-center space-x-3">
+                <div class="bg-gradient-to-br from-indigo-600 to-violet-500 text-white p-2.5 rounded-xl font-black text-xl shadow-inner flex items-center justify-center">
+                    <i class="fa-solid fa-cubes"></i>
+                </div>
+                <div>
+                    <h1 class="text-xl font-bold tracking-tight text-white flex items-center gap-2">
+                        CS & Engineering Master Portal <span class="text-xs px-2 py-0.5 bg-indigo-500/20 text-indigo-400 rounded-full border border-indigo-500/30">8-Module Suite</span>
+                    </h1>
+                    <p class="text-xs text-slate-400">Unified Architecture, HCI, Hardware & Software Systems Ecosystem</p>
+                </div>
+            </div>
+
+            <!-- Global Module Navigation Bar -->
+            <div class="flex items-center space-x-1.5 overflow-x-auto no-scrollbar py-1">
+                <button onclick="switchModule('home')" id="nav-home" class="px-3 py-1.5 text-xs font-semibold rounded-lg bg-indigo-600 text-white transition whitespace-nowrap"><i class="fa-solid fa-house mr-1"></i> Home</button>
+                <button onclick="switchModule('workstation')" id="nav-workstation" class="px-3 py-1.5 text-xs font-semibold rounded-lg bg-slate-800 text-slate-300 hover:bg-slate-700 transition whitespace-nowrap">1. Workstation</button>
+                <button onclick="switchModule('biometrics')" id="nav-biometrics" class="px-3 py-1.5 text-xs font-semibold rounded-lg bg-slate-800 text-slate-300 hover:bg-slate-700 transition whitespace-nowrap">2. Biometrics</button>
+                <button onclick="switchModule('blueprints')" id="nav-blueprints" class="px-3 py-1.5 text-xs font-semibold rounded-lg bg-slate-800 text-slate-300 hover:bg-slate-700 transition whitespace-nowrap">3. Blueprints</button>
+                <button onclick="switchModule('inputs')" id="nav-inputs" class="px-3 py-1.5 text-xs font-semibold rounded-lg bg-slate-800 text-slate-300 hover:bg-slate-700 transition whitespace-nowrap">4. Input Devices</button>
+                <button onclick="switchModule('languages')" id="nav-languages" class="px-3 py-1.5 text-xs font-semibold rounded-lg bg-slate-800 text-slate-300 hover:bg-slate-700 transition whitespace-nowrap">5. Languages</button>
+                <button onclick="switchModule('campus')" id="nav-campus" class="px-3 py-1.5 text-xs font-semibold rounded-lg bg-slate-800 text-slate-300 hover:bg-slate-700 transition whitespace-nowrap">6. Campus IoT</button>
+                <button onclick="switchModule('architecture')" id="nav-architecture" class="px-3 py-1.5 text-xs font-semibold rounded-lg bg-slate-800 text-slate-300 hover:bg-slate-700 transition whitespace-nowrap">7. Architecture</button>
+                <button onclick="switchModule('generations')" id="nav-generations" class="px-3 py-1.5 text-xs font-semibold rounded-lg bg-slate-800 text-slate-300 hover:bg-slate-700 transition whitespace-nowrap">8. Generations</button>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-7xl mx-auto px-4 py-8">
+
+        <!-- ==================== MODULE 0: HOME OVERVIEW DASHBOARD ==================== -->
+        <section id="module-home" class="portal-module space-y-8">
+            <div class="bg-gradient-to-r from-slate-900 via-indigo-950/50 to-slate-900 border border-slate-800 rounded-3xl p-8 shadow-2xl">
+                <span class="text-indigo-400 font-bold uppercase tracking-wider text-xs px-3 py-1 bg-indigo-500/10 rounded-full border border-indigo-500/20 inline-block mb-4">Master Portal Hub</span>
+                <h2 class="text-3xl font-extrabold text-white tracking-tight sm:text-5xl mb-4">
+                    Explore All 8 Engineering & CS Modules
+                </h2>
+                <p class="text-slate-300 text-lg leading-relaxed mb-6 max-w-3xl">
+                    Welcome to the centralized engineering master portal. Select any module below to launch its dedicated interactive simulator, calculation engine, architectural diagram, or comparative analysis matrix.
+                </p>
+                <div class="flex flex-wrap gap-4">
+                    <button onclick="switchModule('architecture')" class="px-6 py-3 bg-indigo-600 hover:bg-indigo-500 text-white font-bold rounded-xl shadow-lg transition flex items-center gap-2">
+                        <i class="fa-solid fa-microchip"></i> Explore Computer Architecture
+                    </button>
+                    <button onclick="switchModule('workstation')" class="px-6 py-3 bg-slate-800 hover:bg-slate-700 text-white font-semibold rounded-xl border border-slate-700 transition flex items-center gap-2">
+                        <i class="fa-solid fa-universal-access"></i> Accessible Workstation
+                    </button>
+                </div>
+            </div>
+
+            <!-- 8 Modules Cards Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                
+                <!-- Card 1 -->
+                <div onclick="switchModule('workstation')" class="bg-slate-900 border border-slate-800 hover:border-indigo-500/50 p-6 rounded-2xl cursor-pointer transition shadow-xl space-y-4 group">
+                    <div class="w-10 h-10 bg-amber-500/10 text-amber-400 rounded-xl flex items-center justify-center font-bold text-lg group-hover:scale-110 transition">
+                        <i class="fa-solid fa-universal-access"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-white">1. Accessible Workstation</h3>
+                    <p class="text-xs text-slate-400 leading-relaxed">
+                        Hands-free voice recognition, tactile Braille arrays, speech synthesisers, and screen reader integration.
+                    </p>
+                    <div class="pt-2 border-t border-slate-800 flex items-center justify-between text-xs text-amber-400 font-semibold">
+                        <span>Launch Module</span> <i class="fa-solid fa-arrow-right group-hover:translate-x-1 transition"></i>
+                    </div>
+                </div>
+
+                <!-- Card 2 -->
+                <div onclick="switchModule('biometrics')" class="bg-slate-900 border border-slate-800 hover:border-indigo-500/50 p-6 rounded-2xl cursor-pointer transition shadow-xl space-y-4 group">
+                    <div class="w-10 h-10 bg-blue-500/10 text-blue-400 rounded-xl flex items-center justify-center font-bold text-lg group-hover:scale-110 transition">
+                        <i class="fa-solid fa-shield-halved"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-white">2. Biometric Audit</h3>
+                    <p class="text-xs text-slate-400 leading-relaxed">
+                        Facial vs. Voice authentication reliability and security vulnerabilities in high-noise public environments.
+                    </p>
+                    <div class="pt-2 border-t border-slate-800 flex items-center justify-between text-xs text-blue-400 font-semibold">
+                        <span>Launch Module</span> <i class="fa-solid fa-arrow-right group-hover:translate-x-1 transition"></i>
+                    </div>
+                </div>
+
+                <!-- Card 3 -->
+                <div onclick="switchModule('blueprints')" class="bg-slate-900 border border-slate-800 hover:border-indigo-500/50 p-6 rounded-2xl cursor-pointer transition shadow-xl space-y-4 group">
+                    <div class="w-10 h-10 bg-cyan-500/10 text-cyan-400 rounded-xl flex items-center justify-center font-bold text-lg group-hover:scale-110 transition">
+                        <i class="fa-solid fa-compass-drafting"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-white">3. Civil Engineering Blueprints</h3>
+                    <p class="text-xs text-slate-400 leading-relaxed">
+                        Drum/Flatbed plotters vs. UHD monitors & large-format printers TCO and line resolution analysis.
+                    </p>
+                    <div class="pt-2 border-t border-slate-800 flex items-center justify-between text-xs text-cyan-400 font-semibold">
+                        <span>Launch Module</span> <i class="fa-solid fa-arrow-right group-hover:translate-x-1 transition"></i>
+                    </div>
+                </div>
+
+                <!-- Card 4 -->
+                <div onclick="switchModule('inputs')" class="bg-slate-900 border border-slate-800 hover:border-indigo-500/50 p-6 rounded-2xl cursor-pointer transition shadow-xl space-y-4 group">
+                    <div class="w-10 h-10 bg-purple-500/10 text-purple-400 rounded-xl flex items-center justify-center font-bold text-lg group-hover:scale-110 transition">
+                        <i class="fa-solid fa-pen-nib"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-white">4. Input Devices</h3>
+                    <p class="text-xs text-slate-400 leading-relaxed">
+                        Mice & Trackballs vs. Graphics Digitizers & Drawing Tablets (coordinate tracking & pressure sensitivity).
+                    </p>
+                    <div class="pt-2 border-t border-slate-800 flex items-center justify-between text-xs text-purple-400 font-semibold">
+                        <span>Launch Module</span> <i class="fa-solid fa-arrow-right group-hover:translate-x-1 transition"></i>
+                    </div>
+                </div>
+
+                <!-- Card 5 -->
+                <div onclick="switchModule('languages')" class="bg-slate-900 border border-slate-800 hover:border-indigo-500/50 p-6 rounded-2xl cursor-pointer transition shadow-xl space-y-4 group">
+                    <div class="w-10 h-10 bg-emerald-500/10 text-emerald-400 rounded-xl flex items-center justify-center font-bold text-lg group-hover:scale-110 transition">
+                        <i class="fa-solid fa-code"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-white">5. Programming Languages</h3>
+                    <p class="text-xs text-slate-400 leading-relaxed">
+                        Low-level (Machine & Assembly) vs. High-level languages: execution speed, translation, and complexity.
+                    </p>
+                    <div class="pt-2 border-t border-slate-800 flex items-center justify-between text-xs text-emerald-400 font-semibold">
+                        <span>Launch Module</span> <i class="fa-solid fa-arrow-right group-hover:translate-x-1 transition"></i>
+                    </div>
+                </div>
+
+                <!-- Card 6 -->
+                <div onclick="switchModule('campus')" class="bg-slate-900 border border-slate-800 hover:border-indigo-500/50 p-6 rounded-2xl cursor-pointer transition shadow-xl space-y-4 group">
+                    <div class="w-10 h-10 bg-rose-500/10 text-rose-400 rounded-xl flex items-center justify-center font-bold text-lg group-hover:scale-110 transition">
+                        <i class="fa-solid fa-id-card-clip"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-white">6. Campus IoT Automation</h3>
+                    <p class="text-xs text-slate-400 leading-relaxed">
+                        Optical data scanners (Barcode/OMR) & Electronic card readers (RFID/Smart Card) for attendance & libraries.
+                    </p>
+                    <div class="pt-2 border-t border-slate-800 flex items-center justify-between text-xs text-rose-400 font-semibold">
+                        <span>Launch Module</span> <i class="fa-solid fa-arrow-right group-hover:translate-x-1 transition"></i>
+                    </div>
+                </div>
+
+                <!-- Card 7 -->
+                <div onclick="switchModule('architecture')" class="bg-slate-900 border border-slate-800 hover:border-indigo-500/50 p-6 rounded-2xl cursor-pointer transition shadow-xl space-y-4 group">
+                    <div class="w-10 h-10 bg-violet-500/10 text-violet-400 rounded-xl flex items-center justify-center font-bold text-lg group-hover:scale-110 transition">
+                        <i class="fa-solid fa-microchip"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-white">7. Computer Architecture</h3>
+                    <p class="text-xs text-slate-400 leading-relaxed">
+                        CPU, Memory, and I/O functional blocks with animated Data, Address, and Control Bus signal flow.
+                    </p>
+                    <div class="pt-2 border-t border-slate-800 flex items-center justify-between text-xs text-violet-400 font-semibold">
+                        <span>Launch Module</span> <i class="fa-solid fa-arrow-right group-hover:translate-x-1 transition"></i>
+                    </div>
+                </div>
+
+                <!-- Card 8 -->
+                <div onclick="switchModule('generations')" class="bg-slate-900 border border-slate-800 hover:border-indigo-500/50 p-6 rounded-2xl cursor-pointer transition shadow-xl space-y-4 group">
+                    <div class="w-10 h-10 bg-teal-500/10 text-teal-400 rounded-xl flex items-center justify-center font-bold text-lg group-hover:scale-110 transition">
+                        <i class="fa-solid fa-clock-rotate-left"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-white">8. Generations & Characteristics</h3>
+                    <p class="text-xs text-slate-400 leading-relaxed">
+                        4 primary characteristics of modern computers & 5 hardware generations (Vacuum tubes to AI).
+                    </p>
+                    <div class="pt-2 border-t border-slate-800 flex items-center justify-between text-xs text-teal-400 font-semibold">
+                        <span>Launch Module</span> <i class="fa-solid fa-arrow-right group-hover:translate-x-1 transition"></i>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ==================== MODULE 1: ACCESSIBLE WORKSTATION ==================== -->
+        <section id="module-workstation" class="portal-module hidden space-y-8">
+            <div class="border-b border-slate-800 pb-4 flex justify-between items-center">
+                <div>
+                    <h2 class="text-2xl font-bold text-white flex items-center gap-2"><i class="fa-solid fa-universal-access text-amber-400"></i> Module 1: Accessible Hands-Free Workstation for Visually Impaired Users</h2>
+                    <p class="text-slate-400 text-sm mt-1">Integration of non-visual input devices (voice recognition, tactile keyboards) with specialized output devices (speech synthesis, screen readers).</p>
+                </div>
+                <button onclick="switchModule('home')" class="px-3 py-1.5 bg-slate-800 hover:bg-slate-700 text-xs font-semibold rounded-lg text-slate-300">Back to Home</button>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <div class="bg-slate-900 border border-slate-800 p-6 rounded-2xl shadow-xl space-y-4">
+                    <h3 class="text-lg font-bold text-white flex items-center gap-2"><i class="fa-solid fa-keyboard text-amber-400"></i> Non-Visual Inputs</h3>
+                    <div class="space-y-3 text-sm text-slate-300">
+                        <div class="p-4 bg-slate-950 rounded-xl border border-slate-800">
+                            <strong class="text-white block mb-1">Tactile & Braille Stenographic Keyboard</strong>
+                            <p class="text-xs text-slate-400">8-key Perkins mechanical layout with tactile home-row bumps and anti-ghosting N-key rollover.</p>
+                        </div>
+                        <div class="p-4 bg-slate-950 rounded-xl border border-slate-800">
+                            <strong class="text-white block mb-1">Acoustic Wake-Word Voice Array</strong>
+                            <p class="text-xs text-slate-400">Multi-microphone beamforming array with local offline speech processing (&lt;40ms latency).</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-slate-900 border border-slate-800 p-6 rounded-2xl shadow-xl space-y-4">
+                    <h3 class="text-lg font-bold text-white flex items-center gap-2"><i class="fa-solid fa-volume-high text-indigo-400"></i> Specialized Outputs</h3>
+                    <div class="space-y-3 text-sm text-slate-300">
+                        <div class="p-4 bg-slate-950 rounded-xl border border-slate-800">
+                            <strong class="text-white block mb-1">Refreshable Braille Display (80-Cell Strip)</strong>
+                            <p class="text-xs text-slate-400">Piezoelectric 80-cell tactile display with cursor routing buttons for multi-line navigation.</p>
+                        </div>
+                        <div class="p-4 bg-slate-950 rounded-xl border border-slate-800">
+                            <strong class="text-white block mb-1">Neural TTS Synthesizer & Spatial Audio</strong>
+                            <p class="text-xs text-slate-400">Binaural 3D sound field positioning UI elements paired with JAWS/NVDA screen readers.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== MODULE 2: BIOMETRIC AUDIT ==================== -->
+        <section id="module-biometrics" class="portal-module hidden space-y-8">
+            <div class="border-b border-slate-800 pb-4 flex justify-between items-center">
+                <div>
+                    <h2 class="text-2xl font-bold text-white flex items-center gap-2"><i class="fa-solid fa-shield-halved text-blue-400"></i> Module 2: Biometric Audit (Vision vs. Voice in Public Environments)</h2>
+                    <p class="text-slate-400 text-sm mt-1">Operational reliability and security vulnerabilities of facial recognition versus voice recognition in high-ambient-noise public spaces.</p>
+                </div>
+                <button onclick="switchModule('home')" class="px-3 py-1.5 bg-slate-800 hover:bg-slate-700 text-xs font-semibold rounded-lg text-slate-300">Back to Home</button>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                <div class="bg-slate-900 border border-slate-800 p-6 rounded-2xl shadow-xl space-y-4">
+                    <h3 class="text-lg font-bold text-white">Environmental Stressors</h3>
+                    <div class="space-y-4 text-xs">
+                        <div>
+                            <div class="flex justify-between mb-1"><span class="text-slate-300">Ambient Noise:</span> <span id="bio-noise-val" class="text-pink-400 font-mono">65 dB</span></div>
+                            <input type="range" id="bio-noise" min="40" max="110" value="65" oninput="runBioSimulation()" class="w-full accent-pink-500 bg-slate-950">
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-1"><span class="text-slate-300">Lighting Glare:</span> <span id="bio-light-val" class="text-blue-400 font-mono">15,000 Lux</span></div>
+                            <input type="range" id="bio-light" min="10" max="100000" value="15000" step="500" oninput="runBioSimulation()" class="w-full accent-blue-500 bg-slate-950">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-2 grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="bg-slate-900 border border-blue-900/40 p-6 rounded-2xl shadow-xl space-y-3">
+                        <h4 class="font-bold text-blue-400 text-base flex items-center gap-2"><i class="fa-solid fa-eye"></i> Vision (Facial)</h4>
+                        <div class="text-xs space-y-2 text-slate-300">
+                            <div class="flex justify-between"><span>False Rejection Rate (FRR):</span> <span id="bio-v-frr" class="font-bold text-white">4.2%</span></div>
+                            <div class="flex justify-between"><span>False Acceptance Rate (FAR):</span> <span id="bio-v-far" class="font-bold text-white">0.05%</span></div>
+                            <div class="flex justify-between"><span>Throughput Speed:</span> <span id="bio-v-speed" class="font-bold text-blue-400">38 p/min</span></div>
+                        </div>
+                    </div>
+
+                    <div class="bg-slate-900 border border-pink-900/40 p-6 rounded-2xl shadow-xl space-y-3">
+                        <h4 class="font-bold text-pink-400 text-base flex items-center gap-2"><i class="fa-solid fa-microphone"></i> Voice Recognition</h4>
+                        <div class="text-xs space-y-2 text-slate-300">
+                            <div class="flex justify-between"><span>False Rejection Rate (FRR):</span> <span id="bio-s-frr" class="font-bold text-white">12.5%</span></div>
+                            <div class="flex justify-between"><span>False Acceptance Rate (FAR):</span> <span id="bio-s-far" class="font-bold text-white">0.20%</span></div>
+                            <div class="flex justify-between"><span>Throughput Speed:</span> <span id="bio-s-speed" class="font-bold text-pink-400">14 p/min</span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== MODULE 3: CIVIL ENGINEERING BLUEPRINTS ==================== -->
+        <section id="module-blueprints" class="portal-module hidden space-y-8">
+            <div class="border-b border-slate-800 pb-4 flex justify-between items-center">
+                <div>
+                    <h2 class="text-2xl font-bold text-white flex items-center gap-2"><i class="fa-solid fa-compass-drafting text-cyan-400"></i> Module 3: Civil Engineering Blueprints (Plotters vs. UHD + Printer)</h2>
+                    <p class="text-slate-400 text-sm mt-1">Assess whether drum/flatbed plotters or UHD monitors paired with large-format printers are superior for civil engineering blueprints.</p>
+                </div>
+                <button onclick="switchModule('home')" class="px-3 py-1.5 bg-slate-800 hover:bg-slate-700 text-xs font-semibold rounded-lg text-slate-300">Back to Home</button>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                <div class="bg-slate-900 border border-slate-800 p-6 rounded-2xl shadow-xl space-y-4">
+                    <h3 class="text-lg font-bold text-white">TCO Parameters</h3>
+                    <div class="space-y-3 text-xs">
+                        <div>
+                            <div class="flex justify-between mb-1"><span class="text-slate-300">Monthly Volume:</span> <span id="bp-vol-val" class="text-cyan-400 font-mono">150 sheets</span></div>
+                            <input type="range" id="bp-vol" min="20" max="500" value="150" oninput="runBlueprintCalc()" class="w-full accent-cyan-500 bg-slate-950">
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-1"><span class="text-slate-300">Engineer Hourly Rate:</span> <span id="bp-rate-val" class="text-cyan-400 font-mono">$75 / hr</span></div>
+                            <input type="range" id="bp-rate" min="40" max="150" value="75" oninput="runBlueprintCalc()" class="w-full accent-cyan-500 bg-slate-950">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-2 grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="bg-slate-900 border border-slate-800 p-6 rounded-2xl shadow-xl space-y-3">
+                        <h4 class="font-bold text-slate-300 text-base">Legacy Drum/Flatbed Plotter</h4>
+                        <div class="text-xs space-y-2 text-slate-300">
+                            <div><span class="text-slate-400 block">3-Year TCO:</span> <span id="bp-tco-a" class="text-2xl font-black text-amber-400">$34,250</span></div>
+                            <p class="text-slate-400">High legacy mechanical upkeep and paper waste from physical redlining without digital previews.</p>
+                        </div>
+                    </div>
+
+                    <div class="bg-slate-900 border border-cyan-500/50 p-6 rounded-2xl shadow-xl space-y-3">
+                        <h4 class="font-bold text-cyan-400 text-base">UHD Monitor + Large-Format Printer</h4>
+                        <div class="text-xs space-y-2 text-slate-300">
+                            <div><span class="text-slate-400 block">3-Year TCO:</span> <span id="bp-tco-b" class="text-2xl font-black text-cyan-400">$21,800</span></div>
+                            <p class="text-slate-400">Digital 4K/5K CAD markup reduces draft printing waste by 70%. Winner for modern civil firms.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== MODULE 4: INPUT DEVICES COMPARISON ==================== -->
+        <section id="module-inputs" class="portal-module hidden space-y-8">
+            <div class="border-b border-slate-800 pb-4 flex justify-between items-center">
+                <div>
+                    <h2 class="text-2xl font-bold text-white flex items-center gap-2"><i class="fa-solid fa-pen-nib text-purple-400"></i> Module 4: Point-and-Draw Devices vs. Graphics Digitizers</h2>
+                    <p class="text-slate-400 text-sm mt-1">Comparing coordinate tracking mechanisms and pressure sensitivity for CAD and digital art applications.</p>
+                </div>
+                <button onclick="switchModule('home')" class="px-3 py-1.5 bg-slate-800 hover:bg-slate-700 text-xs font-semibold rounded-lg text-slate-300">Back to Home</button>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <div class="bg-slate-900 border border-slate-800 p-6 rounded-2xl shadow-xl space-y-4">
+                    <h3 class="text-lg font-bold text-white flex items-center gap-2"><i class="fa-solid fa-computer-mouse text-blue-400"></i> Point-and-Draw (Mouse & Trackball)</h3>
+                    <p class="text-slate-300 text-sm leading-relaxed">
+                        Relative delta tracking $(dx, dy)$ via optical CMOS sensors. Unmatched for orthogonal vector snapping, grid alignment, and CAD toolbars. Binary click feedback (0 pressure levels).
+                    </p>
+                </div>
+
+                <div class="bg-slate-900 border border-slate-800 p-6 rounded-2xl shadow-xl space-y-4">
+                    <h3 class="text-lg font-bold text-white flex items-center gap-2"><i class="fa-solid fa-tablet-screen-button text-purple-400"></i> Graphics Digitizers & Tablets</h3>
+                    <p class="text-slate-300 text-sm leading-relaxed">
+                        Direct absolute $(X, Y)$ mapping via electromagnetic resonance (EMR) grids. Captures 8,192+ levels of pressure sensitivity and barrel tilt angle, translating hand muscle tension into organic stroke dynamics.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== MODULE 5: PROGRAMMING LANGUAGES ==================== -->
+        <section id="module-languages" class="portal-module hidden space-y-8">
+            <div class="border-b border-slate-800 pb-4 flex justify-between items-center">
+                <div>
+                    <h2 class="text-2xl font-bold text-white flex items-center gap-2"><i class="fa-solid fa-code text-emerald-400"></i> Module 5: Low-Level vs. High-Level Programming Languages</h2>
+                    <p class="text-slate-400 text-sm mt-1">Distinguish between Machine, Assembly, and High-Level languages in execution speed, hardware dependence, and translation.</p>
+                </div>
+                <button onclick="switchModule('home')" class="px-3 py-1.5 bg-slate-800 hover:bg-slate-700 text-xs font-semibold rounded-lg text-slate-300">Back to Home</button>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                <div class="bg-slate-900 border border-red-500/30 p-6 rounded-2xl shadow-xl space-y-3">
+                    <h3 class="font-bold text-red-400 text-base">Machine Language</h3>
+                    <p class="text-xs text-slate-300">Pure binary / hex opcodes executed directly by CPU circuitry. Zero translation overhead, but unreadable and architecture-tied.</p>
+                </div>
+                <div class="bg-slate-900 border border-amber-500/30 p-6 rounded-2xl shadow-xl space-y-3">
+                    <h3 class="font-bold text-amber-400 text-base">Assembly Language</h3>
+                    <p class="text-xs text-slate-300">Symbolic mnemonics (MOV, ADD) mapped 1:1 to machine instructions. Requires an Assembler. Used in OS kernels and embedded firmware.</p>
+                </div>
+                <div class="bg-slate-900 border border-emerald-500/30 p-6 rounded-2xl shadow-xl space-y-3">
+                    <h3 class="font-bold text-emerald-400 text-base">High-Level Languages</h3>
+                    <p class="text-xs text-slate-300">English-like syntax (Python, C++, Java) with memory management and platform independence. Translated via compilers or interpreters.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== MODULE 6: CAMPUS IoT AUTOMATION ==================== -->
+        <section id="module-campus" class="portal-module hidden space-y-8">
+            <div class="border-b border-slate-800 pb-4 flex justify-between items-center">
+                <div>
+                    <h2 class="text-2xl font-bold text-white flex items-center gap-2"><i class="fa-solid fa-id-card-clip text-rose-400"></i> Module 6: Campus IoT Automation (Optical vs. Electronic IDs)</h2>
+                    <p class="text-slate-400 text-sm mt-1">Deploying barcode/OMR scanners and RFID/smart card readers for automated student attendance and library checkouts.</p>
+                </div>
+                <button onclick="switchModule('home')" class="px-3 py-1.5 bg-slate-800 hover:bg-slate-700 text-xs font-semibold rounded-lg text-slate-300">Back to Home</button>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <div class="bg-slate-900 border border-slate-800 p-6 rounded-2xl shadow-xl space-y-4">
+                    <h3 class="text-lg font-bold text-white flex items-center gap-2"><i class="fa-solid fa-barcode text-blue-400"></i> Optical Data Scanners (Barcode & OMR)</h3>
+                    <p class="text-slate-300 text-sm leading-relaxed">
+                        Line-of-sight laser/CCD scanners and Optical Mark Recognition (OMR) sheet feeders. Ideal for batch-processing physical Scantron exam sheets and low-cost ID cards.
+                    </p>
+                </div>
+
+                <div class="bg-slate-900 border border-slate-800 p-6 rounded-2xl shadow-xl space-y-4">
+                    <h3 class="text-lg font-bold text-white flex items-center gap-2"><i class="fa-solid fa-wifi text-emerald-400"></i> Electronic Card Readers (RFID & Smart Cards)</h3>
+                    <p class="text-slate-300 text-sm leading-relaxed">
+                        Proximity wireless touchless taps and UHF RFID anti-collision pads. Enables instant turnstile entry and bulk library checkouts of 20+ books simultaneously in under a second.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== MODULE 7: COMPUTER ARCHITECTURE ==================== -->
+        <section id="module-architecture" class="portal-module hidden space-y-8">
+            <div class="border-b border-slate-800 pb-4 flex justify-between items-center">
+                <div>
+                    <h2 class="text-2xl font-bold text-white flex items-center gap-2"><i class="fa-solid fa-microchip text-violet-400"></i> Module 7: Computer Architecture & Bus Signal Flow</h2>
+                    <p class="text-slate-400 text-sm mt-1">Flow of data, instructions, and control signals between the CPU, memory unit, and I/O interface via Address, Data, and Control buses.</p>
+                </div>
+                <button onclick="switchModule('home')" class="px-3 py-1.5 bg-slate-800 hover:bg-slate-700 text-xs font-semibold rounded-lg text-slate-300">Back to Home</button>
+            </div>
+
+            <!-- Interactive FDE Simulator embedded in Master Portal -->
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                <div class="bg-slate-900 border border-slate-800 p-6 rounded-2xl shadow-xl space-y-6">
+                    <h3 class="text-lg font-bold text-white pb-3 border-b border-slate-800">FDE Cycle Controls</h3>
+                    <button onclick="stepMasterFDE()" class="w-full py-3 bg-violet-600 hover:bg-violet-500 text-white font-bold rounded-xl shadow transition text-xs">
+                        <i class="fa-solid fa-forward-step mr-1"></i> Step FDE Cycle
+                    </button>
+                    <div class="bg-slate-950 p-4 rounded-xl border border-slate-800 text-xs space-y-2">
+                        <div class="font-bold text-violet-400" id="master-fde-phase">Phase 1: FETCH Instruction</div>
+                        <p class="text-slate-300" id="master-fde-desc">PC places address 100 onto Address Bus. RAM reads instruction into MDR.</p>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-2 bg-slate-900 border border-slate-800 p-6 rounded-2xl shadow-xl space-y-6">
+                    <h3 class="font-bold text-white text-base">CPU Registers & Bus Status</h3>
+                    <div class="grid grid-cols-4 gap-3 text-center font-mono text-xs">
+                        <div class="bg-slate-950 p-3 rounded-xl border border-slate-800"><span class="text-[9px] text-slate-400 block">PC</span><span id="m-pc" class="text-violet-400 font-bold">100</span></div>
+                        <div class="bg-slate-950 p-3 rounded-xl border border-slate-800"><span class="text-[9px] text-slate-400 block">MAR</span><span id="m-mar" class="text-violet-400 font-bold">100</span></div>
+                        <div class="bg-slate-950 p-3 rounded-xl border border-slate-800"><span class="text-[9px] text-slate-400 block">MDR</span><span id="m-mdr" class="text-violet-400 font-bold">LOAD</span></div>
+                        <div class="bg-slate-950 p-3 rounded-xl border border-slate-800"><span class="text-[9px] text-slate-400 block">AC</span><span id="m-ac" class="text-emerald-400 font-bold">42</span></div>
+                    </div>
+                    <div class="p-3 bg-slate-950 rounded-xl border border-slate-800 text-xs font-mono text-emerald-400" id="m-bus">
+                        Bus Status: Address Bus 0x0064 | Data Bus active
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== MODULE 8: COMPUTER GENERATIONS ==================== -->
+        <section id="module-generations" class="portal-module hidden space-y-8">
+            <div class="border-b border-slate-800 pb-4 flex justify-between items-center">
+                <div>
+                    <h2 class="text-2xl font-bold text-white flex items-center gap-2"><i class="fa-solid fa-clock-rotate-left text-teal-400"></i> Module 8: Computer Characteristics & 5 Hardware Generations</h2>
+                    <p class="text-slate-400 text-sm mt-1">Four primary characteristics of modern computers and hardware technology across all five generations from vacuum tubes to AI.</p>
+                </div>
+                <button onclick="switchModule('home')" class="px-3 py-1.5 bg-slate-800 hover:bg-slate-700 text-xs font-semibold rounded-lg text-slate-300">Back to Home</button>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4">
+                <div class="bg-slate-900 border border-red-500/30 p-5 rounded-2xl shadow-xl space-y-2">
+                    <span class="text-[10px] text-red-400 font-bold block">1940 - 1956</span>
+                    <h3 class="font-bold text-white text-sm">1. Vacuum Tubes</h3>
+                    <p class="text-xs text-slate-400">ENIAC, massive size, high heat, binary machine language.</p>
+                </div>
+                <div class="bg-slate-900 border border-amber-500/30 p-5 rounded-2xl shadow-xl space-y-2">
+                    <span class="text-[10px] text-amber-400 font-bold block">1956 - 1963</span>
+                    <h3 class="font-bold text-white text-sm">2. Transistors</h3>
+                    <p class="text-xs text-slate-400">Solid-state switches, assembly & FORTRAN languages.</p>
+                </div>
+                <div class="bg-slate-900 border border-emerald-500/30 p-5 rounded-2xl shadow-xl space-y-2">
+                    <span class="text-[10px] text-emerald-400 font-bold block">1964 - 1971</span>
+                    <h3 class="font-bold text-white text-sm">3. Integrated Circuits</h3>
+                    <p class="text-xs text-slate-400">Silicon chips, minicomputers, high-level BASIC/C.</p>
+                </div>
+                <div class="bg-slate-900 border border-blue-500/30 p-5 rounded-2xl shadow-xl space-y-2">
+                    <span class="text-[10px] text-blue-400 font-bold block">1971 - Present</span>
+                    <h3 class="font-bold text-white text-sm">4. Microprocessors</h3>
+                    <p class="text-xs text-slate-400">VLSI technology, personal computers, internet age.</p>
+                </div>
+                <div class="bg-slate-900 border border-violet-500/30 p-5 rounded-2xl shadow-xl space-y-2">
+                    <span class="text-[10px] text-violet-400 font-bold block">Present & Beyond</span>
+                    <h3 class="font-bold text-white text-sm">5. AI & Quantum</h3>
+                    <p class="text-xs text-slate-400">Neural processing units, parallel quantum architectures.</p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Custom Modal -->
+    <div id="customModal" class="fixed inset-0 bg-slate-950/80 backdrop-blur-sm z-50 flex items-center justify-center hidden" role="dialog" aria-modal="true">
+        <div class="bg-slate-900 border border-slate-800 p-6 rounded-2xl max-w-md w-full mx-4 shadow-2xl space-y-4">
+            <h3 id="modalTitle" class="text-xl font-bold text-white flex items-center gap-2">Portal Notice</h3>
+            <p id="modalMessage" class="text-slate-300 text-sm leading-relaxed"></p>
+            <div class="flex justify-end pt-2">
+                <button onclick="closeModal()" class="px-5 py-2.5 bg-indigo-600 hover:bg-indigo-500 text-white font-bold rounded-xl shadow transition text-xs">
+                    Understood
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Module Switcher Engine
+        function switchModule(modId) {
+            const modules = document.querySelectorAll('.portal-module');
+            modules.forEach(m => m.classList.add('hidden'));
+
+            const navs = ['home', 'workstation', 'biometrics', 'blueprints', 'inputs', 'languages', 'campus', 'architecture', 'generations'];
+            navs.forEach(nav => {
+                const btn = document.getElementById('nav-' + nav);
+                if (btn) {
+                    if (nav === modId) {
+                        btn.className = "px-3 py-1.5 text-xs font-semibold rounded-lg bg-indigo-600 text-white transition whitespace-nowrap";
+                    } else {
+                        btn.className = "px-3 py-1.5 text-xs font-semibold rounded-lg bg-slate-800 text-slate-300 hover:bg-slate-700 transition whitespace-nowrap";
+                    }
+                }
+            });
+
+            const target = document.getElementById('module-' + modId);
+            if (target) {
+                target.classList.remove('hidden');
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+        }
+
+        // Biometric Simulation in Module 2
+        function runBioSimulation() {
+            const noise = parseInt(document.getElementById('bio-noise').value);
+            const light = parseInt(document.getElementById('bio-light').value);
+            document.getElementById('bio-noise-val').innerText = noise + ' dB';
+            document.getElementById('bio-light-val').innerText = light.toLocaleString() + ' Lux';
+
+            let vFRR = Math.min(40, Math.max(2, (light > 50000 ? (light-50000)/2000 : 2)));
+            let sFRR = Math.min(60, Math.max(5, (noise > 60 ? (noise - 60) * 1.2 : 5)));
+            document.getElementById('bio-v-frr').innerText = vFRR.toFixed(1) + '%';
+            document.getElementById('bio-s-frr').innerText = sFRR.toFixed(1) + '%';
+        }
+
+        // Blueprint TCO Calculator in Module 3
+        function runBlueprintCalc() {
+            const vol = parseInt(document.getElementById('bp-vol').value);
+            const rate = parseInt(document.getElementById('bp-rate').value);
+            document.getElementById('bp-vol-val').innerText = vol + ' sheets';
+            document.getElementById('bp-rate-val').innerText = '$' + rate + ' / hr';
+
+            const tcoA = vol * 36 * 3 * 0.45 + (vol * 0.5 * 12 * 3 * rate) + 10500;
+            const tcoB = vol * 36 * 3 * 0.25 + (vol * 0.15 * 12 * 3 * rate) + 12000;
+            document.getElementById('bp-tco-a').innerText = '$' + Math.round(tcoA).toLocaleString();
+            document.getElementById('bp-tco-b').innerText = '$' + Math.round(tcoB).toLocaleString();
+        }
+
+        // Master FDE Step in Module 7
+        let masterStep = 0;
+        const masterPhases = [
+            { phase: "Phase 1: FETCH Instruction", desc: "PC places address 100 onto Address Bus. RAM reads instruction into MDR.", pc: "100", mar: "100", mdr: "LOAD R1", ac: "42", bus: "Address Bus 0x0064 | MEM_READ" },
+            { phase: "Phase 2: DECODE Instruction", desc: "Control Unit decodes opcode. Program Counter increments to 101.", pc: "101", mar: "200", mdr: "LOAD R1", ac: "42", bus: "Internal Control Unit Decoding" },
+            { phase: "Phase 3: EXECUTE Operand", desc: "Data value 42 transferred from RAM location 200 into Accumulator.", pc: "101", mar: "200", mdr: "VAL: 42", ac: "42", bus: "Data Bus: 42 -> Accumulator" }
+        ];
+
+        function stepMasterFDE() {
+            masterStep = (masterStep + 1) % masterPhases.length;
+            const p = masterPhases[masterStep];
+            document.getElementById('master-fde-phase').innerText = p.phase;
+            document.getElementById('master-fde-desc').innerText = p.desc;
+            document.getElementById('m-pc').innerText = p.pc;
+            document.getElementById('m-mar').innerText = p.mar;
+            document.getElementById('m-mdr').innerText = p.mdr;
+            document.getElementById('m-ac').innerText = p.ac;
+            document.getElementById('m-bus').innerText = "Bus Status: " + p.bus;
+        }
+
+        // Modal Helpers
+        function showModal(title, message) {
+            document.getElementById('modalTitle').innerText = title;
+            document.getElementById('modalMessage').innerText = message;
+            document.getElementById('customModal').classList.remove('hidden');
+        }
+        function closeModal() {
+            document.getElementById('customModal').classList.add('hidden');
+        }
+
+        window.onload = function() {
+            switchModule('home');
+            runBioSimulation();
+            runBlueprintCalc();
+        }
+    </script>
+</body>
+</html>
